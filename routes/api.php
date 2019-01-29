@@ -29,6 +29,10 @@ Route::put('/clientes/{id}', 'ClientController@update');
 
 Route::put('/livros/{id}', 'LivroController@update');
 
-Route::delete('/clientes/{id}', 'ClientController@destroy');
+Route::delete('/clientes/{id}', 'ClientController@delete');
 
-Route::delete('/livros/{id}', 'LivroController@destroy');
+Route::delete('/livros/{id}', 'LivroController@delete');
+
+Route::get('/clientes/{id}', 'ClientController@show');
+
+Route::get('/livros/{id}', 'ClientController@show');
