@@ -16,3 +16,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/clientes', 'ClientController@create');
+
+Route::post('/livros', 'LivroController@create');
+
+Route::get('/clientes', 'ClientController@list');
+
+Route::get('/livros', 'LivroController@list');
+
+Route::put('/clientes/{id}', 'ClientController@update');
+
+Route::put('/livros/{id}', 'LivroController@update');
+
+Route::delete('/clientes/{id}', 'ClientController@destroy');
+
+Route::delete('/livros/{id}', 'LivroController@destroy');
