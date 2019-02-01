@@ -37,4 +37,4 @@ Route::get('/clientes/{id}', 'ClientController@show')->name('ver_cliente');
 
 Route::get('/livros/{id}', 'ClientController@show')->name('ver_livro');
 
-Route::apiResource('emprestimo', 'EmprestimoController');
+Route::apiResource('emprestimos', 'EmprestimoController');

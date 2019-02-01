@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Emprestimo;
+use App\Http\Resources\EmprestimoResource;
 
 class EmprestimoController extends Controller
 {
@@ -13,7 +15,8 @@ class EmprestimoController extends Controller
      */
     public function index()
     {
-        return Emprestimo::all();
+        // return Emprestimo::all();
+        return EmprestimoResource::collection(Emprestimo::all());
     }
 
     /**
@@ -31,7 +34,8 @@ class EmprestimoController extends Controller
       $emprestimo->fk_id_livro= $request->fk_id_livro;
       $emprestimo->status= $request->status;
       $emprestimo->save();
-      return response()->json([$emprestimo]);
+      // return response()->json([$emprestimo]);
+      return new EmprestimoResource($emprestimo);
     }
 
     /**
@@ -43,7 +47,8 @@ class EmprestimoController extends Controller
     public function show($id)
     {
       $emprestimo = Emprestimo::findOrFail($id);
-      return response()->json([$emprestimo]);
+      // return response()->json([$emprestimo]);
+      return new EmprestimoResource($emprestimo);
     }
 
     /**
@@ -67,7 +72,8 @@ class EmprestimoController extends Controller
       if($request->data_de_termino)
         $emprestimo->data_de_termino = $request->data_de_termino;
       $emprestimo->save();
-        return response()->json([$emprestimo]);
+        // return response()->json([$emprestimo]);
+      return new EmprestimoResource($emprestimo);
     }
 
     /**
